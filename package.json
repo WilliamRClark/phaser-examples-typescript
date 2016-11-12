@@ -13,6 +13,9 @@
     "type": "git",
     "url": "https://github.com/mikaturunen/phaser-examples-typescript.git"
   },
+  "scripts": {
+    "start": "lite-server"
+  },
   "keywords": [
     "HTML5",
     "game",
@@ -35,6 +38,7 @@
     "grunt-contrib-uglify": "~0.3.3",
     "grunt-text-replace": "~0.3.11",
     "grunt-ts": "^3.0.0",
+    "lite-server": "^2.2.2",
     "lodash": "~2.2.1",
     "phaser": "2.2.2"
   }
