@@ -10,6 +10,7 @@ Phaser.sublime-workspace
 *.sublime-project
 *.sublime-workspace
 .tscache
+.vscode/
 
 # Vendors
 node_modules/

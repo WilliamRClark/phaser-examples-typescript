@@ -4,7 +4,7 @@ var mummy: Phaser.Sprite;
 var anim: Phaser.Animation;
 var loopText: Phaser.Text;
 
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, "phaser-example", { 
+var game : Phaser.Game = new Phaser.Game(800, 600, Phaser.CANVAS, "phaser-example", { 
     preload: () => {
         game.load.image("lazur", "assets/pics/thorn_lazur.png");
         game.load.spritesheet("mummy", "assets/sprites/metalslug_mummy37x45.png", 37, 45, 18);

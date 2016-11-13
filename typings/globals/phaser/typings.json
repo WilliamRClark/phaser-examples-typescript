@@ -1,0 +1,17 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/photonstorm/phaser/master/typescript/typings.json",
+    "raw": "github:photonstorm/phaser/typescript/typings.json",
+    "main": "phaser.d.ts",
+    "files": [
+      "box2d.d.ts",
+      "p2.comments.d.ts",
+      "phaser.d.ts",
+      "phaser_box2d.d.ts",
+      "pixi.comments.d.ts"
+    ],
+    "global": true,
+    "name": "phaser"
+  }
+}
