@@ -1,5 +1,5 @@
 var flyer;
-var bounceCursors;
+var cursors;
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, "phaser-example", {
     preload: function () { return game.load.spritesheet("dude", "assets/games/starstruck/dude.png", 32, 48); },
     create: function () {
