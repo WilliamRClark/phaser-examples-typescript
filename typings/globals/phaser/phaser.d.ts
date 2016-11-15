@@ -9683,7 +9683,7 @@ declare module Phaser {
         * @param context A string containing the context under which the method will be executed. Set to null to default to the child.
         * @param args Additional parameters that will be passed to the method.
         */
-        callAll(method: string, context: any, ...parameters: any[]): void;
+        callAll(method: string, context?: any, ...parameters: any[]): void;
 
         /**
         * Calls a function, specified by name, on all children in the group who exist (or do not exist).

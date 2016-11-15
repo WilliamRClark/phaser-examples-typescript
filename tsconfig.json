@@ -66,6 +66,8 @@
         "examples/arcade physics/sprite vs group.ts",
         "examples/arcade physics/sprite vs sprite.ts",
         "examples/arcade physics/vertical collision.ts",
-        "examples/games/simon.ts"        
+        "examples/games/breakout.ts",        
+        "examples/games/simon.ts",
+        "examples/games/gemmatch.ts"        
 	]
 }
