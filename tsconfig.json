@@ -68,6 +68,7 @@
         "examples/arcade physics/vertical collision.ts",
         "examples/games/breakout.ts",        
         "examples/games/simon.ts",
-        "examples/games/gemmatch.ts"        
+        "examples/games/gemmatch.ts",
+        "examples/games/invaders.ts"        
 	]
 }
