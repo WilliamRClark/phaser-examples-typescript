@@ -70,7 +70,8 @@
         "examples/games/simon.ts",
         "examples/games/gemmatch.ts",
         "examples/games/invaders.ts",
-        "examples/games/matching pairs.ts"
+        "examples/games/matching pairs.ts",
+        "examples/games/sliding-puzzle.ts"
                 
 	]
 }

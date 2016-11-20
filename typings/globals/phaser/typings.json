@@ -7,7 +7,7 @@
     "files": [
       "box2d.d.ts",
       "p2.comments.d.ts",
-      "phaser.d.ts",
+      "phaser.comments.d.ts",
       "phaser_box2d.d.ts",
       "pixi.comments.d.ts"
     ],
