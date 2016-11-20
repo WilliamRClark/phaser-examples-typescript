@@ -69,6 +69,8 @@
         "examples/games/breakout.ts",        
         "examples/games/simon.ts",
         "examples/games/gemmatch.ts",
-        "examples/games/invaders.ts"        
+        "examples/games/invaders.ts",
+        "examples/games/matching pairs.ts"
+                
 	]
 }

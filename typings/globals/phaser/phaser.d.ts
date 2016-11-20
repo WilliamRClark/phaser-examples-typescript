@@ -8111,7 +8111,7 @@ declare module Phaser {
         * @param group Optional Group to add the object to. If not specified it will be added to the World group.
         * @return The newly created graphics object.
         */
-        graphics(x: number, y: number, group?: Phaser.Group): Phaser.Graphics;
+        graphics(x?: number, y?: number, group?: Phaser.Group): Phaser.Graphics;
 
         /**
         * A Group is a container for display objects that allows for fast pooling, recycling and collision checks.
@@ -29045,6 +29045,33 @@ declare module Phaser {
         */
         setScale(xScale?: number, yScale?: number): void;
         updateMax(): void;
+
+        /**
+        * Convert a pixel value to a tile coordinate.
+        *
+        * @param {number} x - X position of the point in target tile (in pixels).
+        * @return {integer} The X map location of the tile.
+        */
+        getTileX(x: number): number;
+
+        /**
+        * Convert a pixel value to a tile coordinate.
+        *
+        * @param {number} y - Y position of the point in target tile (in pixels).
+        * @return {integer} The Y map location of the tile.
+        */
+        getTileY(y: number): number;
+
+        /**
+        * Convert a pixel coordinate to a tile coordinate.
+        *
+        * @param {number} x - X position of the point in target tile (in pixels).
+        * @param {number} y - Y position of the point in target tile (in pixels).
+        * @param {(Phaser.Point|object)} point - The Point/object to update.
+        * @return {(Phaser.Point|object)} A Point/object with its `x` and `y` properties set.
+        */
+        getTileXY(x: number, y: number, point: Phaser.Point): Phaser.Point;
+
 
     }
 
