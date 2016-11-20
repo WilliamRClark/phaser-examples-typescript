@@ -12,6 +12,29 @@ TypeScript examples by [Mika Turunen](https://github.com/mikaturunen/)
 
 ![div](http://www.phaser.io/images/github/welcome-div2.png)
 
+# Differences From Mainline In this Fork
+
+## Compile Infrastructure Added
+A simple NodeJS compile Infrastructure has been added to compile the TypeScript files into javascript.  To compile, from the root directory do the following:
+1. First Install the dependencies
+```
+npm install
+```
+
+2. Now compile the source
+```
+npm run tsc
+```
+
+## TypeScript Definition Corrected
+The current TypeScript definition doesn't work for all of the Games.  Minor tweaks were added to allow the source to compile.
+
+## Web Server Integration
+The examples have been integrated with the LiteServer.  To run from the root directory:
+```
+npm start 
+```
+
 # Phaser Examples
 
 <img src="http://phaser.io/images/github/jump.jpg" align="right">
