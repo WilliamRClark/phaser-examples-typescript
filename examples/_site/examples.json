@@ -841,6 +841,10 @@
       "title": "matching pairs"
     },
     {
+      "file": "sliding-puzzle.js",
+      "title": "sliding puzzle"
+    },
+    {
       "file": "simon.js",
       "title": "simon"
     },
