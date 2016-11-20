@@ -16,6 +16,7 @@ TypeScript examples by [Mika Turunen](https://github.com/mikaturunen/)
 
 ## Compile Infrastructure Added
 A simple NodeJS compile Infrastructure has been added to compile the TypeScript files into javascript.  To compile, from the root directory do the following:
+
 1. First Install the dependencies
 ```
 npm install
