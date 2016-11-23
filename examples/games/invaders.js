@@ -2,6 +2,7 @@ var Games;
 (function (Games) {
     var GemMatch;
     (function (GemMatch) {
+        var fx;
         var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
         function preload() {
             game.load.image('bullet', 'assets/games/invaders/bullet.png');
@@ -11,6 +12,7 @@ var Games;
             game.load.spritesheet('kaboom', 'assets/games/invaders/explode.png', 128, 128);
             game.load.image('starfield', 'assets/games/invaders/starfield.png');
             game.load.image('background', 'assets/games/starstruck/background2.png');
+            game.load.audio("sfx", "assets/audio/SoundEffects/fx_mixdown.ogg");
         }
         var player;
         var aliens;
@@ -55,6 +57,7 @@ var Games;
             aliens.enableBody = true;
             aliens.physicsBodyType = Phaser.Physics.ARCADE;
             createAliens();
+            createSounds();
             scoreString = 'Score : ';
             scoreText = game.add.text(10, 10, scoreString + score, { font: '34px Arial', fill: '#fff' });
             lives = game.add.group();
@@ -88,6 +91,19 @@ var Games;
             aliens.y = 50;
             var tween = game.add.tween(aliens).to({ x: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
             tween.onLoop.add(descend, this);
+        }
+        function createSounds() {
+            fx = game.add.audio("sfx");
+            fx.allowMultiple = true;
+            fx.addMarker("alien death", 1, 1.0);
+            fx.addMarker("boss hit", 3, 0.5);
+            fx.addMarker("escape", 4, 3.2);
+            fx.addMarker("meow", 8, 0.5);
+            fx.addMarker("numkey", 9, 0.1);
+            fx.addMarker("ping", 10, 1.0);
+            fx.addMarker("death", 12, 4.2);
+            fx.addMarker("shot", 17, 1.0);
+            fx.addMarker("squit", 19, 0.3);
         }
         function setupInvader(invader) {
             invader.anchor.x = 0.5;
@@ -124,6 +140,7 @@ var Games;
             alien.kill();
             score += 20;
             scoreText.text = scoreString + score;
+            fx.play("alien death");
             var explosion = explosions.getFirstExists(false);
             explosion.reset(alien.body.x, alien.body.y);
             explosion.play('kaboom', 30, false, true);
@@ -133,6 +150,7 @@ var Games;
                 enemyBullets.callAll('kill', this);
                 stateText.text = " You Won, \n Click to restart";
                 stateText.visible = true;
+                fx.play("escape");
                 game.input.onTap.addOnce(restart, this);
             }
         }
@@ -144,6 +162,7 @@ var Games;
             }
             var explosion = explosions.getFirstExists(false);
             explosion.reset(player.body.x, player.body.y);
+            fx.play("death");
             explosion.play('kaboom', 30, false, true);
             if (lives.countLiving() < 1) {
                 player.kill();
@@ -174,6 +193,7 @@ var Games;
                     bullet.reset(player.x, player.y + 8);
                     bullet.body.velocity.y = -400;
                     bulletTime = game.time.now + 200;
+                    fx.play("shot");
                 }
             }
         }

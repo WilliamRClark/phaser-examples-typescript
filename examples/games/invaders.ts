@@ -1,6 +1,7 @@
 namespace Games {
 namespace GemMatch {
 
+    var fx: Phaser.Sound;
     var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
     function preload() {
@@ -13,6 +14,8 @@ namespace GemMatch {
         game.load.image('starfield', 'assets/games/invaders/starfield.png');
         game.load.image('background', 'assets/games/starstruck/background2.png');
 
+        // Load audio.
+        game.load.audio("sfx", "assets/audio/SoundEffects/fx_mixdown.ogg");
     }
 
     var player : Phaser.Sprite;
@@ -71,6 +74,7 @@ namespace GemMatch {
         aliens.physicsBodyType = Phaser.Physics.ARCADE;
 
         createAliens();
+        createSounds();
 
         //  The score
         scoreString = 'Score : ';
@@ -127,6 +131,26 @@ namespace GemMatch {
         //  When the tween loops it calls descend
         tween.onLoop.add(descend, this);
     }
+
+    function createSounds() {
+        //  Here we set-up our audio sprite
+        fx = game.add.audio("sfx");
+        fx.allowMultiple = true;
+
+        //  And this defines the markers.
+        //  They consist of a key (for replaying), the time the sound starts and the duration, both given in seconds.
+        //  You can also set the volume and loop state, although we don"t use them in this example (see the docs)
+        fx.addMarker("alien death", 1, 1.0);
+        fx.addMarker("boss hit", 3, 0.5);
+        fx.addMarker("escape", 4, 3.2);
+        fx.addMarker("meow", 8, 0.5);
+        fx.addMarker("numkey", 9, 0.1);
+        fx.addMarker("ping", 10, 1.0);
+        fx.addMarker("death", 12, 4.2);
+        fx.addMarker("shot", 17, 1.0);
+        fx.addMarker("squit", 19, 0.3);
+    }
+
 
     function setupInvader (invader) {
 
@@ -199,6 +223,7 @@ namespace GemMatch {
         scoreText.text = scoreString + score;
 
         //  And create an explosion :)
+        fx.play("alien death");
         var explosion = explosions.getFirstExists(false);
         explosion.reset(alien.body.x, alien.body.y);
         explosion.play('kaboom', 30, false, true);
@@ -211,6 +236,8 @@ namespace GemMatch {
             enemyBullets.callAll('kill',this);
             stateText.text = " You Won, \n Click to restart";
             stateText.visible = true;
+            fx.play("escape");
+
 
             //the "click to restart" handler
             game.input.onTap.addOnce(restart,this);
@@ -232,6 +259,7 @@ namespace GemMatch {
         //  And create an explosion :)
         var explosion = explosions.getFirstExists(false);
         explosion.reset(player.body.x, player.body.y);
+        fx.play("death");
         explosion.play('kaboom', 30, false, true);
 
         // When the player dies
@@ -293,6 +321,8 @@ namespace GemMatch {
                 bullet.reset(player.x, player.y + 8);
                 bullet.body.velocity.y = -400;
                 bulletTime = game.time.now + 200;
+                fx.play("shot");
+
             }
         }
 
