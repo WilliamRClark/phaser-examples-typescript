@@ -26673,7 +26673,7 @@ declare module Phaser {
 
         /**
         * The bounds of the Visual viewport, as discussed in
-        * {@link http://www.quirksmode.org/mobile/viewports.html A tale of two viewports â€” part one}
+        * {@link http://www.quirksmode.org/mobile/viewports.html A tale of two viewports — part one}
         * with one difference: the viewport size _excludes_ scrollbars, as found on some desktop browsers.
         * 
         * Supported mobile:
@@ -26685,7 +26685,7 @@ declare module Phaser {
 
         /**
         * The bounds of the Layout viewport, as discussed in
-        * {@link http://www.quirksmode.org/mobile/viewports2.html A tale of two viewports â€” part two};
+        * {@link http://www.quirksmode.org/mobile/viewports2.html A tale of two viewports — part two};
         * but honoring the constraints as specified applicable viewport meta-tag.
         * 
         * The bounds returned are not guaranteed to be fully aligned with CSS media queries (see
@@ -29071,8 +29071,7 @@ declare module Phaser {
         * @return {(Phaser.Point|object)} A Point/object with its `x` and `y` properties set.
         */
         getTileXY(x: number, y: number, point: Phaser.Point): Phaser.Point;
-
-
+		
     }
 
     class TilemapLayerGL {
