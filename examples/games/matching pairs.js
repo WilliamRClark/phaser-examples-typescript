@@ -133,7 +133,9 @@ var Games;
             game.debug.text(youWin, 620, 240, 'rgb(0,255,0)');
             game.debug.text('Time: ' + myCountdownSeconds, 620, 15, 'rgb(0,255,0)');
             game.debug.text('Matched Pairs: ' + masterCounter, 620, 304, 'rgb(0,0,255)');
-            game.debug.text('Tile: ' + map.getTile(layer.getTileX(marker.x), layer.getTileY(marker.y)).index, 620, 48, 'rgb(255,0,0)');
+            if (map.getTile(layer.getTileX(marker.x), layer.getTileY(marker.y))) {
+                game.debug.text('Tile: ' + map.getTile(layer.getTileX(marker.x), layer.getTileY(marker.y)).index, 620, 48, 'rgb(255,0,0)');
+            }
             game.debug.text('LayerX: ' + layer.getTileX(marker.x), 620, 80, 'rgb(255,0,0)');
             game.debug.text('LayerY: ' + layer.getTileY(marker.y), 620, 112, 'rgb(255,0,0)');
             game.debug.text('Tile Position: ' + currentTilePosition, 620, 144, 'rgb(255,0,0)');

@@ -220,7 +220,9 @@ namespace MatchingPairs {
         //game.debug.text('startList: ' + myString1, 620, 208, 'rgb(255,0,0)');
         //game.debug.text('squareList: ' + myString2, 620, 240, 'rgb(255,0,0)');
 
-        game.debug.text('Tile: ' + map.getTile(layer.getTileX(marker.x), layer.getTileY(marker.y)).index, 620, 48, 'rgb(255,0,0)');
+        if (map.getTile(layer.getTileX(marker.x), layer.getTileY(marker.y))) {
+            game.debug.text('Tile: ' + map.getTile(layer.getTileX(marker.x), layer.getTileY(marker.y)).index, 620, 48, 'rgb(255,0,0)');
+        }
 
         game.debug.text('LayerX: ' + layer.getTileX(marker.x), 620, 80, 'rgb(255,0,0)');
         game.debug.text('LayerY: ' + layer.getTileY(marker.y), 620, 112, 'rgb(255,0,0)');
